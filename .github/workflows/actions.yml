@@ -4,10 +4,17 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'src/**' # Only trigger workflow when pushing to master branch with changes to files under the src directory
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    # This image comes with multiple things pre-installed so don't have to install them as part of yaml file
+    # -Maven
+    # -Java 17
+    # -Chrome, Edge, and Firefox browsers
+    # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
 
     steps:
       - name: Checkout code

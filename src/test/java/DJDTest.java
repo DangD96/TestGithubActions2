@@ -21,8 +21,7 @@ public class DJDTest {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--headless");
-                // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
+                options.addArguments("--headless"); // Test will run in GitHub Runner environment, which is headless
                 driver = new ChromeDriver(options);
                 break;
             case "Edge":
@@ -30,13 +29,11 @@ public class DJDTest {
                 options2.addArguments("--no-sandbox");
                 options2.addArguments("--disable-dev-shm-usage");
                 options2.addArguments("--headless");
-                // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
                 driver = new EdgeDriver(options2);
                 break;
             case "Firefox":
                 FirefoxOptions options3 = new FirefoxOptions();
                 options3.addArguments("-headless");
-                // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
                 driver = new FirefoxDriver(options3);
                 break;
             default:
