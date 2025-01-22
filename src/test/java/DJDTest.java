@@ -10,13 +10,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-
 public class DJDTest {
     private WebDriver driver;
 
     @BeforeTest
-    public void setUp() throws MalformedURLException {
+    public void setUp() {
         String browser = System.getProperty("browser");
         switch (browser) {
             case "Chrome":
@@ -29,11 +27,15 @@ public class DJDTest {
                 break;
             case "Edge":
                 EdgeOptions options2 = new EdgeOptions();
+                options2.addArguments("--no-sandbox");
+                options2.addArguments("--disable-dev-shm-usage");
+                options2.addArguments("--headless");
                 // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
                 driver = new EdgeDriver(options2);
                 break;
             case "Firefox":
                 FirefoxOptions options3 = new FirefoxOptions();
+                options3.addArguments("-headless");
                 // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
                 driver = new FirefoxDriver(options3);
                 break;
