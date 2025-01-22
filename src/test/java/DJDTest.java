@@ -23,7 +23,7 @@ public class DJDTest {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
-                //options.addArguments("--headless");
+                options.addArguments("--headless");
                 // The name of the Docker selenium hub service is used as the hostname in the URL to access the Selenium Grid Hub
                 driver = new ChromeDriver(options);
                 break;
